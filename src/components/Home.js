@@ -35,7 +35,7 @@ const Section = styled.section`
   display: flex;
   justify-content: center;
   h5 {
-    color: #0a66c2;
+    color: brown;
     font-size: 14px;
     a {
       font-weight: 700;

@@ -5,7 +5,7 @@ const Login = (props) => {
     <Container>
       <Nav>
         <a href="/">
-          <img src="/images/campushub-logo.svg" alt="" />
+          <img src="/images/campushub-logo1.svg" alt="" />
         </a>
         <div>
           <Join>Join now</Join>
