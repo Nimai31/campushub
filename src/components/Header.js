@@ -1,82 +1,84 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 const Header = (props) => {
-    return (
-        <Container>
-            <Content>
-                <Logo>
-                    <a href="/home">
-                        <img src="/images/header-logo.svg" alt="" />
-                    </a>
-                </Logo>
-                <Search>
-                    <div>
-                        <input type="text" placeholder="Search" />
-                    </div>
-                    <SearchIcon>
-                        <img src="/images/search-icon.svg" alt="" />
-                    </SearchIcon>
-                </Search>
-                <Nav>
-                    <NavListWrap>
-                        
-                        <NavList className="active">
-                            <a>
-                                <img src ='/images/nav-home.svg' alt=''/>
-                                <span>Home</span>
-                            </a>
-                        </NavList>
+  return (
+    <Container>
+      <Content>
+        <Logo>
+          <a href="/home">
+            <img src="/images/header-logo.svg" alt="" />
+          </a>
+        </Logo>
+        <Search>
+          <div>
+            <input type="text" placeholder="Search" />
+          </div>
+          <SearchIcon>
+            <img src="/images/search-icon.svg" alt="" />
+          </SearchIcon>
+        </Search>
+        <Nav>
+          <NavListWrap>
+            <NavList className="active">
+              <a>
+                <img src="/images/nav-home.svg" alt="" />
+                <span>Home</span>
+              </a>
+            </NavList>
 
-                        <NavList>
-                            <a>
-                                <img src ='/images/nav-events.svg' alt=''/>
-                                <span>Events</span>
-                            </a>
-                        </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-events.svg" alt="" />
+                <span>Events</span>
+              </a>
+            </NavList>
 
-                        <NavList>
-                            <a>
-                                <img src ='/images/nav-project-colab.svg' alt=''/>
-                                <span>Project Hub</span>
-                            </a>
-                        </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-project-colab.svg" alt="" />
+                <span>Project Hub</span>
+              </a>
+            </NavList>
 
-                        <NavList>
-                            <a>
-                                <img src ='/images/nav-messaging.svg' alt=''/>
-                                <span>Messaging</span>
-                            </a>
-                        </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-messaging.svg" alt="" />
+                <span>Messaging</span>
+              </a>
+            </NavList>
 
-                        <NavList>
-                            <a>
-                                <img src ='/images/nav-notifications.svg' alt=''/>
-                                <span>Notifications</span>
-                            </a>
-                        </NavList>
+            <NavList>
+              <a>
+                <img src="/images/nav-notifications.svg" alt="" />
+                <span>Notifications</span>
+              </a>
+            </NavList>
 
-                        <User>
-                        <a>
-                            <img src ='/images/user.svg' alt=''/>
-                            <span>Me</span>
-                            <img src ='/images/nav-dropdown.svg' alt=''/>
-                        </a>
-                        </User>
+            <User>
+              <a>
+                <img src="/images/user.svg" alt="" />
+                <span>Me</span>
+                <img src="/images/nav-dropdown.svg" alt="" />
+              </a>
 
-                        <Work>
-                        <a>
-                            <img src ='/images/nav-menu.svg' alt=''/>
-                            <span>
-                                More 
-                                <img src ='/images/nav-dropdown.svg' alt=''/>
-                            </span>
-                        </a>
-                        </Work>
+              <SignOut>
+                <a>Sign Out</a>
+              </SignOut>
+            </User>
 
-                    </NavListWrap>
-                </Nav>
-            </Content>
-        </Container>
-    );
+            <Work>
+              <a>
+                <img src="/images/nav-menu.svg" alt="" />
+                <span>
+                  More
+                  <img src="/images/nav-dropdown.svg" alt="" />
+                </span>
+              </a>
+            </Work>
+          </NavListWrap>
+        </Nav>
+      </Content>
+    </Container>
+  );
 };
 
 const Container = styled.div`
@@ -101,12 +103,12 @@ const Content = styled.div`
 const Logo = styled.span`
   margin-right: 8px;
   font-size: 0px;
-    & > a {
-        img {
-            height: 40px;
-            width: 40px;
-        }
+  & > a {
+    img {
+      height: 40px;
+      width: 40px;
     }
+  }
 `;
 
 const Search = styled.div`
@@ -196,13 +198,13 @@ const NavList = styled.li`
     position: relative;
     text-decoration: none;
     img {
-            max-height: 35px;
-            max-width: 35px;
-            padding-top: 5px;
-        }
+      max-height: 35px;
+      max-width: 35px;
+      padding-top: 5px;
+    }
 
     span {
-      color: brown;
+      color: black;
       display: flex;
       align-items: center;
     }
@@ -216,10 +218,24 @@ const NavList = styled.li`
   &:active {
     a {
       span {
-        color: #CD7F32;
+        color: rgba(0, 0, 0, 0.7);
       }
     }
   }
+`;
+
+const SignOut = styled.div`
+  position: absolute;
+  top: 45px;
+  background: white;
+  border-radius: 0 0 5px 5px;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+  color: black;
 `;
 
 const User = styled(NavList)`
@@ -237,6 +253,14 @@ const User = styled(NavList)`
   span {
     display: flex;
     align-items: center;
+  }
+
+  &:hover {
+    ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
   }
 `;
 
