@@ -8,7 +8,7 @@ const Leftside = (props) => {
           <CardBackground />
           <a>
             <Photo />
-            <Link>Welcome, there!</Link>
+            <Link>Hello !</Link>
           </a>
           <a>
             <AddPhotoText>Add a photo</AddPhotoText>
@@ -17,7 +17,7 @@ const Leftside = (props) => {
         <Widget>
           <a>
             <div>
-              <span>Connections</span>
+              <span>Followers</span>
               <span>Grow your network</span>
             </div>
             <img src="/images/widget-icon.svg" alt="" />
