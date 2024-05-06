@@ -14,8 +14,8 @@ const Login = (props) => {
       </Nav>
       <Section>
         <Hero>
-          <h1>Welcome to your college community</h1>
-          <img src="images/login-hero.svg" alt="" />
+          <h1>WELCOME TO YOUR COLLEGE COMMUNITY</h1>
+          <img src="images/trial1.svg" alt="" />
         </Hero>
         <Form>
           <Google>
@@ -57,19 +57,19 @@ const Join = styled.a`
   padding: 10px 12px;
   text-decoration: none;
   border-radius: 4px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 24, 56, 0.7);
   margin-right: 12px;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.9);
+    color: rgba(0, 24, 56);
     text-decoration: none;
   }
 `;
 
 const SignIn = styled.a`
-  box-shadow: inset 0 0 0 1px brown;
-  color: brown;
+  box-shadow: inset 0 0 0 1px #001838;
+  color: #001838;
   border-radius: 24px;
   transition-duration: 150ms;
   font-size: 16px;
@@ -80,7 +80,7 @@ const SignIn = styled.a`
   background-color: rgba(0, 0, 0, 0);
 
   &:hover {
-    background-color: #eaddca;
+    background-color: #98c5e9;
     text-decoration: none;
   }
 `;
@@ -111,7 +111,9 @@ const Hero = styled.div`
     padding-bottom: 0;
     width: 55%;
     font-size: 56px;
-    color: brown;
+    color: #001838;
+    font-weight: bolder;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
     font-weight: 200;
     line-height: 70px;
     @media (max-width: 758px) {

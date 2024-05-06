@@ -20,35 +20,43 @@ const Header = (props) => {
           <NavListWrap>
             <NavList className="active">
               <a>
-                <img src="/images/nav-home.svg" alt="" />
+                <img src="/images/nav-home.svg" class="home" alt="" />
                 <span>Home</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
-                <img src="/images/nav-events.svg" alt="" />
+                <img src="/images/nav-events.svg" class="events" alt="" />
                 <span>Event Hub</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
-                <img src="/images/nav-project-colab.svg" alt="" />
+                <img
+                  src="/images/nav-project-colab.svg"
+                  class="projects"
+                  alt=""
+                />
                 <span>Project Hub</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
-                <img src="/images/nav-messaging.svg" alt="" />
+                <img src="/images/nav-messaging.svg" class="messaging" alt="" />
                 <span>Messaging</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
-                <img src="/images/nav-notifications.svg" alt="" />
+                <img
+                  src="/images/nav-notifications.svg"
+                  class="notifications"
+                  alt=""
+                />
                 <span>Notifications</span>
               </a>
             </NavList>
@@ -82,8 +90,8 @@ const Header = (props) => {
 };
 
 const Container = styled.div`
-  background-color: #fff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background-color: #98c5e9;
+  border-bottom: 3px solid #001838;
   left: 0;
   padding: 0 24px;
   position: fixed;
@@ -176,7 +184,7 @@ const NavListWrap = styled.ul`
       position: absolute;
       transition: transform 0.2s ease-in-out;
       width: 100%;
-      border-color: brown;
+      border-color: #001838;
     }
   }
 `;
@@ -201,10 +209,27 @@ const NavList = styled.li`
       max-height: 35px;
       max-width: 35px;
       padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    .home {
+      max-height: 31px;
+      padding-bottom: 9px;
+    }
+
+    .projects {
+      max-height: 31px;
+      padding-bottom: 9px;
+    }
+
+    .events {
+      max-height: 36px;
+      padding-bottom: 4px;
     }
 
     span {
-      color: black;
+      color: #001838;
+      font-weight: bold;
       display: flex;
       align-items: center;
     }
@@ -227,7 +252,7 @@ const NavList = styled.li`
 const SignOut = styled.div`
   position: absolute;
   top: 45px;
-  background: white;
+  background-color: white;
   border-radius: 0 0 5px 5px;
   width: 100px;
   height: 40px;
@@ -235,7 +260,6 @@ const SignOut = styled.div`
   transition-duration: 167ms;
   text-align: center;
   display: none;
-  color: black;
 `;
 
 const User = styled(NavList)`

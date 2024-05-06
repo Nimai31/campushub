@@ -47,12 +47,13 @@ const FollowCard = styled.div`
   text-align: center;
   overflow: hidden;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: #98c5e9;
   border-radius: 5px;
   position: relative;
   border: none;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
   padding: 12px;
+  border: 3px solid #001838;
 `;
 
 const Title = styled.div`
@@ -107,7 +108,7 @@ const Avatar = styled.div`
 `;
 
 const Recommendation = styled.a`
-  color: brown;
+  color: #001838;
   display: flex;
   align-items: center;
   font-size: 14px;

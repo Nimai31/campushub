@@ -6,12 +6,7 @@ import Rightside from "./Rightside";
 const Home = (props) => {
   return (
     <Container>
-      <Section>
-        <h5>
-          <a>Want to be a moderator? - </a>
-        </h5>
-        <p> Contact us !</p>
-      </Section>
+      <Section></Section>
       <Layout>
         <Leftside />
         <Main />

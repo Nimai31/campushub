@@ -57,23 +57,24 @@ const ArtCard = styled.div`
   text-align: center;
   overflow: hidden;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: #98c5e9;
   border-radius: 5px;
   transition: box-shadow 83ms;
   position: relative;
   border: none;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
+  border: 3px solid #001838;
 `;
 
 const UserInfo = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #001838;
   padding: 12px 12px 16px;
   word-wrap: break-word;
   word-break: break-word;
 `;
 
 const CardBackground = styled.div`
-  background: url("/images/card-bg.svg");
+  background: url("/images/trial-bg.webp");
   background-position: center;
   background-size: 462px;
   height: 54px;
@@ -91,7 +92,7 @@ const Photo = styled.div`
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  border: 2px solid white;
+  border: 3px solid #001838;
   margin: -38px auto 12px;
   border-radius: 50%;
 `;
@@ -104,7 +105,7 @@ const Link = styled.div`
 `;
 
 const AddPhotoText = styled.div`
-  color: brown;
+  color: #fff;
   margin-top: 4px;
   font-size: 12px;
   line-height: 1.33;
@@ -112,7 +113,7 @@ const AddPhotoText = styled.div`
 `;
 
 const Widget = styled.div`
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom: 3px solid #001838;
   padding-top: 12px;
   padding-bottom: 12px;
 
@@ -193,7 +194,7 @@ const CommunityCard = styled(ArtCard)`
       color: rgba(0, 0, 0, 0.6);
       text-decoration: none;
 
-      border-top: 1px solid #d6cec2;
+      border-top: 3px solid #001838;
       padding: 12px;
       &:hover {
         background-color: rgba(0, 0, 0, 0.08);
