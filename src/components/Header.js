@@ -1,4 +1,6 @@
+import { connect } from "react-redux";
 import styled from "styled-components";
+import { signOutAPI } from "../actions";
 const Header = (props) => {
   return (
     <Container>
@@ -36,7 +38,7 @@ const Header = (props) => {
               <a>
                 <img
                   src="/images/nav-project-colab.svg"
-                  class="projects"
+                  className="projects"
                   alt=""
                 />
                 <span>Project Hub</span>
@@ -54,7 +56,7 @@ const Header = (props) => {
               <a>
                 <img
                   src="/images/nav-notifications.svg"
-                  class="notifications"
+                  className="notifications"
                   alt=""
                 />
                 <span>Notifications</span>
@@ -63,12 +65,16 @@ const Header = (props) => {
 
             <User>
               <a>
-                <img src="/images/user.svg" alt="" />
+                {props.user && props.user.photoURL ? (
+                  <img src={props.user.photoURL} alt="" />
+                ) : (
+                  <img src="/images/user.svg" alt="" />
+                )}
                 <span>Me</span>
                 <img src="/images/nav-dropdown.svg" alt="" />
               </a>
 
-              <SignOut>
+              <SignOut onClick={() => props.SignOut()}>
                 <a>Sign Out</a>
               </SignOut>
             </User>
@@ -292,4 +298,13 @@ const Work = styled(NavList)`
   border-left: 1px solid rgba(0, 0, 0, 0.08);
 `;
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.userState.user,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  SignOut: () => dispatch(signOutAPI()),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
