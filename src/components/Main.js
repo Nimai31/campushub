@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PostModal from "./PostModal";
 import { connect } from "react-redux";
 import { getArticlesAPI } from "../actions";
+import ReactPlayer from "react-player";
 
 const Main = (props) => {
   const [showModal, setShowModal] = useState("close");
@@ -93,7 +94,11 @@ const Main = (props) => {
                   <Description>{article.description}</Description>
                   <SharedImg>
                     <a>
-                      <img src="images/shared-image.jpg" alt="" />
+                      {!article.sharedImage && article.video ? (
+                        <ReactPlayer width={"100%"} url={article.video} />
+                      ) : (
+                        article.sharedImage && <img src={article.sharedImage} />
+                      )}
                     </a>
                   </SharedImg>
                   <SocialCounts>
@@ -105,7 +110,7 @@ const Main = (props) => {
                       </button>
                     </li>
                     <li>
-                      <a>2 comments</a>
+                      <a>{article.comments}</a>
                     </li>
                   </SocialCounts>
                   <SocialActions>
@@ -319,7 +324,13 @@ const SocialCounts = styled.ul`
 
     button {
       display: flex;
+      border: none;
+      background-color: #98c5e9;
     }
+  }
+
+  a {
+    font-size: 15px;
   }
 
   img {
@@ -339,11 +350,13 @@ const SocialActions = styled.div`
     align-items: center;
     padding: 8px;
     color: #001838;
-    border: 2px solid #001838;
+    border: none;
+    background-color: #98c5e9;
+    padding-right: 20px;
 
     img {
       height: 30px;
-      padding-right: 2px;
+      padding-right: 1px;
     }
 
     @media (min-width: 768px) {
