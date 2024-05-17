@@ -1,13 +1,26 @@
+import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { signOutAPI } from "../actions";
+
 const Header = (props) => {
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    navigate("/profile");
+  };
+
+  const handleHomeClick = () => {
+    navigate("/home");
+  };
+
   return (
     <Container>
       <Content>
-        <Logo>
-          <a href="/home">
-            <img src="/images/header-logo.svg" alt="" />
+        <Logo onClick={handleHomeClick}>
+          <a>
+            <img src="/images/header-logo.svg" alt="Logo" />
           </a>
         </Logo>
         <Search>
@@ -15,21 +28,25 @@ const Header = (props) => {
             <input type="text" placeholder="Search" />
           </div>
           <SearchIcon>
-            <img src="/images/search-icon.svg" alt="" />
+            <img src="/images/search-icon.svg" alt="Search Icon" />
           </SearchIcon>
         </Search>
         <Nav>
           <NavListWrap>
-            <NavList className="active">
+            <NavList className="active" onClick={handleHomeClick}>
               <a>
-                <img src="/images/nav-home.svg" class="home" alt="" />
+                <img src="/images/nav-home.svg" className="home" alt="Home" />
                 <span>Home</span>
               </a>
             </NavList>
 
             <NavList>
               <a>
-                <img src="/images/nav-events.svg" class="events" alt="" />
+                <img
+                  src="/images/nav-events.svg"
+                  className="events"
+                  alt="Events"
+                />
                 <span>Event Hub</span>
               </a>
             </NavList>
@@ -39,7 +56,7 @@ const Header = (props) => {
                 <img
                   src="/images/nav-project-colab.svg"
                   className="projects"
-                  alt=""
+                  alt="Projects"
                 />
                 <span>Project Hub</span>
               </a>
@@ -47,7 +64,11 @@ const Header = (props) => {
 
             <NavList>
               <a>
-                <img src="/images/nav-messaging.svg" class="messaging" alt="" />
+                <img
+                  src="/images/nav-messaging.svg"
+                  className="messaging"
+                  alt="Messaging"
+                />
                 <span>Messaging</span>
               </a>
             </NavList>
@@ -57,7 +78,7 @@ const Header = (props) => {
                 <img
                   src="/images/nav-notifications.svg"
                   className="notifications"
-                  alt=""
+                  alt="Notifications"
                 />
                 <span>Notifications</span>
               </a>
@@ -66,25 +87,29 @@ const Header = (props) => {
             <User>
               <a>
                 {props.user && props.user.photoURL ? (
-                  <img src={props.user.photoURL} alt="" />
+                  <img src={props.user.photoURL} alt="User" />
                 ) : (
-                  <img src="/images/user.svg" alt="" />
+                  <img src="/images/user.svg" alt="User" />
                 )}
                 <span>Me</span>
-                <img src="/images/nav-dropdown.svg" alt="" />
+                <img src="/images/nav-dropdown.svg" alt="Dropdown Icon" />
               </a>
 
               <SignOut onClick={() => props.SignOut()}>
                 <a>Sign Out</a>
               </SignOut>
+
+              <Profile onClick={handleProfileClick}>
+                <a>My Profile</a>
+              </Profile>
             </User>
 
             <Work>
               <a>
-                <img src="/images/nav-menu.svg" alt="" />
+                <img src="/images/nav-menu.svg" alt="Menu" />
                 <span>
                   More
-                  <img src="/images/nav-dropdown.svg" alt="" />
+                  <img src="/images/nav-dropdown.svg" alt="Dropdown Icon" />
                 </span>
               </a>
             </Work>
@@ -117,6 +142,7 @@ const Content = styled.div`
 const Logo = styled.span`
   margin-right: 8px;
   font-size: 0px;
+  cursor: pointer;
   & > a {
     img {
       height: 40px;
@@ -198,6 +224,7 @@ const NavListWrap = styled.ul`
 const NavList = styled.li`
   display: flex;
   align-items: center;
+  cursor: pointer;
   a {
     align-items: center;
     background: transparent;
@@ -257,15 +284,27 @@ const NavList = styled.li`
 
 const SignOut = styled.div`
   position: absolute;
-  top: 45px;
+  top: 80px;
   background-color: white;
-  border-radius: 0 0 5px 5px;
   width: 100px;
   height: 40px;
   font-size: 16px;
   transition-duration: 167ms;
   text-align: center;
   display: none;
+`;
+
+const Profile = styled.div`
+  position: absolute;
+  top: 45px;
+  background-color: white;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  transition-duration: 167ms;
+  text-align: center;
+  display: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 `;
 
 const User = styled(NavList)`
@@ -287,6 +326,12 @@ const User = styled(NavList)`
 
   &:hover {
     ${SignOut} {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+    }
+
+    ${Profile} {
       align-items: center;
       display: flex;
       justify-content: center;
