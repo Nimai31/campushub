@@ -1,14 +1,21 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import UserDetailsModal from "./UserDetailsModal";
+import { Navigate } from "react-router-dom";
 
 const Profile = (props) => {
-  useEffect(() => {
-    // You might fetch user profile data here
-  }, []);
+  const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {}, []);
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
+  };
 
   return (
     <Container>
+      {!props.user && <Navigate to="/" />}
       <ProfileCard>
         <div>
           {props.user && props.user.photoURL ? (
@@ -19,25 +26,39 @@ const Profile = (props) => {
           <UserInfo>
             <h2>{props.user ? props.user.displayName : "User Name"}</h2>
             <p>{props.user ? props.user.email : "user@example.com"}</p>
+            <h2>headline</h2>
+            <h3>branch</h3>
+            <h3>semester</h3>
+            <h3>Links</h3>
           </UserInfo>
         </div>
         <ProfileActions>
-          <button>Edit Profile</button>
+          <button onClick={toggleModal}>Edit Profile</button>
         </ProfileActions>
       </ProfileCard>
-      <ProfileCard>Certifications</ProfileCard>
-      <ProfileCard>Skills</ProfileCard>
+      <ProfileCard>
+        <div>Certificates</div>
+      </ProfileCard>
+      <ProfileCard>
+        <div>Skills</div>
+      </ProfileCard>
+      <UserDetailsModal
+        showModal={showModal ? "open" : "close"}
+        handleClick={toggleModal}
+      />
     </Container>
   );
 };
 
 const Container = styled.div`
-  grid-area: main;
-  margin: 20px;
   padding-top: 100px;
+  grid-area: main;
+  margin: 0px;
 `;
 
 const CommonCard = styled.div`
+  margin-left: 175px;
+  margin-right: 175px;
   text-align: center;
   overflow: hidden;
   margin-bottom: 8px;
@@ -54,10 +75,9 @@ const ProfileCard = styled(CommonCard)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 90px;
-  margin-right: 90px;
   min-height: 200px;
   margin-bottom: 50px;
+
   img {
     width: 100px;
     border-radius: 50%;
@@ -91,6 +111,28 @@ const ProfileActions = styled.div`
     border: 1px solid #001838;
     border-radius: 20px;
     cursor: pointer;
+  }
+`;
+
+const Content = styled.div`
+  margin-top: 20px;
+`;
+
+const Section = styled.div`
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #98c5e9;
+  border-radius: 5px;
+  text-align: left;
+
+  h3 {
+    margin: 0 0 10px 0;
+    color: #001838;
+  }
+
+  p {
+    margin: 0;
+    color: rgba(0, 0, 0, 0.9);
   }
 `;
 
